@@ -2,17 +2,17 @@
 
 The aim of this document is to get you started with developing
 applications for Node.js, teaching you everything you need to know about
-\"advanced\" JavaScript along the way. It goes way beyond your typical
-\"Hello World\" tutorial.
+"advanced" JavaScript along the way. It goes way beyond your typical
+"Hello World" tutorial.
 
 ## Status
 
 You are reading the final version of this book, i.e., updates are only
 done to correct errors or to reflect changes in new versions of Node.js.
-It was last updated on February 12, 2012.
+It was last updated on September 9, 2012.
 
 The code samples in this book are tested to work with Node.js version
-0.6.10.
+0.8.8.
 
 ## Intended audience
 
@@ -22,7 +22,7 @@ language like Ruby, Python, PHP or Java, only little experience with
 JavaScript, and completely new to Node.js.
 
 Aiming at developers that already have experience with other programming
-languages means that this document won\'t cover really basic stuff like
+languages means that this document won't cover really basic stuff like
 data types, variables, control structures and the likes. You already
 need to know about these to understand this document.
 
@@ -37,7 +37,7 @@ application which allows the users of this application to view web pages
 and upload files.
 
 Which, of course, is not exactly world-changing, but we will go some
-extra miles and not only create the code that is \"just enough\" to make
+extra miles and not only create the code that is "just enough" to make
 these use cases possible, but create a simple, yet complete framework to
 cleanly separate the different aspects of our application. You will see
 what I mean in a minute.
@@ -45,11 +45,11 @@ what I mean in a minute.
 We will start with looking at how JavaScript development in Node.js is
 different from JavaScript development in a browser.
 
-Next, we will stay with the good old tradition of writing a \"Hello
-World\" application, which is a most basic Node.js application that
-\"does\" something.
+Next, we will stay with the good old tradition of writing a "Hello
+World" application, which is a most basic Node.js application that
+"does" something.
 
-Then, we will discuss what kind of \"real\" application we want to
+Then, we will discuss what kind of "real" application we want to
 build, dissect the different parts which need to be implemented to
 assemble this application, and start working on each of these parts
 step-by-step.
@@ -63,19 +63,19 @@ programming languages.
 
 ## JavaScript and You
 
-Before we talk about all the technical stuff, let\'s take a moment and
+Before we talk about all the technical stuff, let's take a moment and
 talk about you and your relationship with JavaScript. This chapter is
 here to allow you to estimate if reading this document any further makes
 sense for you.
 
-If you are like me, you started with HTML \"development\" long ago, by
+If you are like me, you started with HTML "development" long ago, by
 writing HTML documents. You came along this funny thing called
 JavaScript, but you only used it in a very basic way, adding
 interactivity to your web pages every now and then.
 
-What you really wanted was \"the real thing\", you wanted to know how to
+What you really wanted was "the real thing", you wanted to know how to
 build complex web sites - you learned a programming language like PHP,
-Ruby, Java, and started writing \"backend\" code.
+Ruby, Java, and started writing "backend" code.
 
 Nevertheless, you kept an eye on JavaScript, you saw that with the
 introduction of jQuery, Prototype and the likes, things got more
@@ -89,63 +89,63 @@ not a JavaScript *developer*.
 
 And then came Node.js. JavaScript on the server, how cool is that?
 
-You decided that it\'s about time to check out the old, new JavaScript.
+You decided that it's about time to check out the old, new JavaScript.
 But wait, writing Node.js applications is the one thing; understanding
 why they need to be written the way they are written means -
 understanding JavaScript. And this time for real.
 
 Here is the problem: Because JavaScript really lives two, maybe even
-three lives (the funny little DHMTL helper from the mid-90\'s, the more
+three lives (the funny little DHMTL helper from the mid-90's, the more
 serious frontend stuff like jQuery and the likes, and now server-side),
-it\'s not that easy to find information that helps you to learn
-JavaScript the \"right\" way, in order to write Node.js applications in
+it's not that easy to find information that helps you to learn
+JavaScript the "right" way, in order to write Node.js applications in
 a fashion that makes you feel you are not just using JavaScript, you are
 actually developing it.
 
-Because that\'s the catch: you already are an experienced developer, you
-don\'t want to learn a new technique by just hacking around and
+Because that's the catch: you already are an experienced developer, you
+don't want to learn a new technique by just hacking around and
 mis-using it; you want to be sure that you are approaching it from the
 right angle.
 
 There is, of course, excellent documentation out there. But
-documentation alone sometimes isn\'t enough. What is needed is guidance.
+documentation alone sometimes isn't enough. What is needed is guidance.
 
 My goal is to provide a guide for you.
 
 ## A word of warning
 
-There are some really excellent JavaScript people out there. I\'m not
+There are some really excellent JavaScript people out there. I'm not
 one of them.
 
-I\'m really just the guy I talked about in the previous paragraph. I
-know a thing or two about developing backend web applications, but I\'m
-still new to \"real\" JavaScript and still new to Node.js. I learned
-some of the more advanced aspects of JavaScript just recently. I\'m not
+I'm really just the guy I talked about in the previous paragraph. I
+know a thing or two about developing backend web applications, but I'm
+still new to "real" JavaScript and still new to Node.js. I learned
+some of the more advanced aspects of JavaScript just recently. I'm not
 experienced.
 
-Which is why this is no \"from novice to expert\" book. It\'s more like
-\"from novice to advanced novice\".
+Which is why this is no "from novice to expert" book. It's more like
+"from novice to advanced novice".
 
-If I don\'t fail, then this will be the kind of document I wish I had
+If I don't fail, then this will be the kind of document I wish I had
 when starting with Node.js.
 
 ## Server-side JavaScript
 
 The first incarnations of JavaScript lived in browsers. But this is just
 the context. It defines what you can do with the language, but it
-doesn\'t say much about what the language itself can do. JavaScript is a
-\"complete\" language: you can use it in many contexts and achieve
-everything with it you can achieve with any other \"complete\" language.
+doesn't say much about what the language itself can do. JavaScript is a
+"complete" language: you can use it in many contexts and achieve
+everything with it you can achieve with any other "complete" language.
 
 Node.js really is just another context: it allows you to run JavaScript
 code in the backend, outside a browser.
 
 In order to execute the JavaScript you intend to run in the backend, it
 needs to be interpreted and, well, executed. This is what Node.js does,
-by making use of Google\'s V8 VM, the same runtime environment for
+by making use of Google's V8 VM, the same runtime environment for
 JavaScript that Google Chrome uses.
 
-Plus, Node.js ships with a lot of useful modules, so you don\'t have to
+Plus, Node.js ships with a lot of useful modules, so you don't have to
 write everything from scratch, like for example something that outputs a
 string on the console.
 
@@ -156,13 +156,13 @@ repeating the process here, I kindly ask you to visit [the official
 installation instructions][1]. Please come back once you are up and
 running.
 
-## \"Hello World\"
+## "Hello World"
 
-Ok, let\'s just jump in the cold water and write our first Node.js
-application: \"Hello World\".
+Ok, let's just jump in the cold water and write our first Node.js
+application: "Hello World".
 
 Open your favorite editor and create a file called *helloworld.js*. We
-want it to write \"Hello World\" to STDOUT, and here is the code needed
+want it to write "Hello World" to STDOUT, and here is the code needed
 to do that:
 
 {:lang="js" }
@@ -174,13 +174,13 @@ Save the file, and execute it through Node.js:
 
 This should output *Hello World* on your terminal.
 
-Ok, this stuff is boring, right? Let\'s write some real stuff.
+Ok, this stuff is boring, right? Let's write some real stuff.
 
 # A full blown web application with Node.js
 
 ## The use cases
 
-Let\'s keep it simple, but realistic:
+Let's keep it simple, but realistic:
 
 * The user should be able to use our application with a web browser
 * The user should see a welcome page when requesting
@@ -190,16 +190,16 @@ Let\'s keep it simple, but realistic:
   displayed once the upload is finished
 
 Fair enough. Now, you could achieve this goal by googling and hacking
-together *something*. But that\'s not what we want to do here.
+together *something*. But that's not what we want to do here.
 
-Furthermore, we don\'t want to write only the most basic code to achieve
+Furthermore, we don't want to write only the most basic code to achieve
 the goal, however elegant and correct this code might be. We will
 intentionally add more abstraction than necessary in order to get a
 feeling for building more complex Node.js applications.
 
 ## The application stack
 
-Let\'s dissect our application. Which parts need to be implemented in
+Let's dissect our application. Which parts need to be implemented in
 order to fulfill the use cases?
 
 * We want to serve web pages, therefore we need an **HTTP server**
@@ -214,16 +214,16 @@ order to fulfill the use cases?
 * We not only want to handle requests for URLs, we also want to display
   content when these URLs are requested, which means we need some kind
   of **view logic** the request handlers can use in order to send
-  content to the user\'s browser
+  content to the user's browser
 * Last but not least, the user will be able to upload images, so we are
   going to need some kind of **upload handling** which takes care of the
   details
 
-Let\'s think a moment about how we would build this stack with PHP.
-It\'s not exactly a secret that the typical setup would be an Apache
+Let's think a moment about how we would build this stack with PHP.
+It's not exactly a secret that the typical setup would be an Apache
 HTTP server with mod\_php5 installed.   
- Which in turn means that the whole \"we need to be able to serve web
-pages and receive HTTP requests\" stuff doesn\'t happen within PHP
+ Which in turn means that the whole "we need to be able to serve web
+pages and receive HTTP requests" stuff doesn't happen within PHP
 itself.
 
 Well, with node, things are a bit different. Because with Node.js, we
@@ -232,9 +232,9 @@ server. In fact, our web application and its web server are basically
 the same.
 
 This might sound like a lot of work, but we will see in a moment that
-with Node.js, it\'s not.
+with Node.js, it's not.
 
-Let\'s just start at the beginning and implement the first part of our
+Let's just start at the beginning and implement the first part of our
 stack, the HTTP server.
 
 # Building the application stack
@@ -242,28 +242,28 @@ stack, the HTTP server.
 ## A basic HTTP server
 
 When I arrived at the point where I wanted to start with my first
-\"real\" Node.js application, I wondered not only how to actually code
+"real" Node.js application, I wondered not only how to actually code
 it, but also how to organize my code.   
  Do I need to have everything in one file? Most tutorials on the web
 that teach you how to write a basic HTTP server in Node.js have all the
 logic in one place. What if I want to make sure that my code stays
 readable the more stuff I implement?
 
-Turns out, it\'s relatively easy to keep the different concerns of your
+Turns out, it's relatively easy to keep the different concerns of your
 code separated, by putting them in modules.
 
 This allows you to have a clean main file, which you execute with
 Node.js, and clean modules that can be used by the main file and among
 each other.
 
-So, let\'s create a main file which we use to start our application, and
+So, let's create a main file which we use to start our application, and
 a module file where our HTTP server code lives.
 
-My impression is that it\'s more or less a standard to name your main
+My impression is that it's more or less a standard to name your main
 file *index.js*. It makes sense to put our server module into a file
 named *server.js*.
 
-Let\'s start with the server module. Create the file *server.js* in the
+Let's start with the server module. Create the file *server.js* in the
 root directory of your project, and fill it with the following code:
 
 {:lang="js" }
@@ -275,22 +275,22 @@ root directory of your project, and fill it with the following code:
       response.end();
     }).listen(8888);
 
-That\'s it! You just wrote a working HTTP server. Let\'s prove it by
+That's it! You just wrote a working HTTP server. Let's prove it by
 running and testing it. First, execute your script with Node.js:
 
     node server.js
 
 Now, open your browser and point it at [http://localhost:8888/][2]{:
-rel="nofollow"}. This should display a web page that says \"Hello
-World\".
+rel="nofollow"}. This should display a web page that says "Hello
+World".
 
-That\'s quite interesting, isn\'t it. How about talking about what\'s
+That's quite interesting, isn't it. How about talking about what's
 going on here and leaving the question of how to organize our project
-for later? I promise we\'ll get back to it.
+for later? I promise we'll get back to it.
 
 ## Analyzing our HTTP server
 
-Well, then, let\'s analyze what\'s actually going on here.
+Well, then, let's analyze what's actually going on here.
 
 The first line *require*s the *http* module that ships with Node.js and
 makes it accessible through the variable *http*.
@@ -351,7 +351,7 @@ Of course, because *say* takes one parameter, *execute* can pass such a
 parameter when calling *someFunction*.
 
 We can, as we just did, pass a function as a parameter to another
-function by its name. But we don\'t have to take this indirection of
+function by its name. But we don't have to take this indirection of
 first defining, then passing it - we can define and pass a function as a
 parameter to another function in-place:
 
@@ -365,18 +365,18 @@ parameter to another function in-place:
 We define the function we want to pass to *execute* right there at the
 place where *execute* expects its first parameter.
 
-This way, we don\'t even need to give the function a name, which is why
+This way, we don't even need to give the function a name, which is why
 this is called an *anonymous function*.
 
-This is a first glimpse at what I like to call \"advanced\" JavaScript,
-but let\'s take it step by step. For now, let\'s just accept that in
+This is a first glimpse at what I like to call "advanced" JavaScript,
+but let's take it step by step. For now, let's just accept that in
 JavaScript, we can pass a function as a parameter when calling another
 function. We can do this by assigning our function to a variable, which
 we then pass, or by defining the function to pass in-place.
 
 ## How function passing makes our HTTP server work
 
-With this knowledge, let\'s get back to our minimalistic HTTP server:
+With this knowledge, let's get back to our minimalistic HTTP server:
 
 {:lang="js" }
     var http = require("http");
@@ -408,22 +408,22 @@ Maybe now is a good moment to ask: Why are we doing it that way?
 ## Event-driven asynchronous callbacks
 
 To understand why Node.js applications have to be written this way,
-we need to understand how Node.js executes our code. Node\'s
-approach isn\'t unique, but the underlying execution model is
+we need to understand how Node.js executes our code. Node's
+approach isn't unique, but the underlying execution model is
 different from runtime environments like Python, Ruby, PHP or Java.
 
-Let\'s take a very simple piece of code like this:
+Let's take a very simple piece of code like this:
 
 {:lang="js" }
     var result = database.query("SELECT * FROM hugetable");
     console.log("Hello World");
 
-Please ignore for now that we haven\'t actually talked about
-connecting to databases before - it\'s just an example. The
+Please ignore for now that we haven't actually talked about
+connecting to databases before - it's just an example. The
 first line queries a database for lots of rows, the second
-line puts \"Hello World\" to the console.
+line puts "Hello World" to the console.
 
-Let\'s assume that the database query is really slow, that it has
+Let's assume that the database query is really slow, that it has
 to read an awful lot of rows, which takes several seconds.
 
 The way we have written this code, the JavaScript interpreter of
@@ -437,7 +437,7 @@ of code. If this code would be part of a web page script, the user
 would have to wait several seconds for the page to load.
 
 However, in the execution model of PHP, this would not become a
-\"global\" problem: the web server starts its own PHP process for
+"global" problem: the web server starts its own PHP process for
 every HTTP request it receives. If one of these requests results
 in the execution of a slow piece of code, it results in a slow
 page load for this particular user, but other users requesting
@@ -473,10 +473,10 @@ Now, Node.js can handle the database request asynchronously.
 Provided that *database.query()* is part of an asynchronous
 library, this is what Node.js does: just as before, it takes the
 query and sends it to the database. But instead of waiting for it
-to be finished, it makes a mental note that says \"When at some
+to be finished, it makes a mental note that says "When at some
 point in the future the database server is done and sends the
 result of the query, then I have to execute the anonymous function
-that was passed to *database.query()*.\"
+that was passed to *database.query()*."
 
 Then, it immediately executes *console.log()*, and
 afterwards, it enters the event loop. Node.js continuously cycles
@@ -491,10 +491,10 @@ only when it arrives, that would be highly inefficent. If a second
 user requests the server while it is still serving the first
 request, that second request could only be answered after the first
 one is done - as soon as you have more than a handful of HTTP
-requests per second, this wouldn\'t work at all.
+requests per second, this wouldn't work at all.
 
-It\'s important to note that this asynchronous, single-threaded,
-event-driven execution model isn\'t an infinitely scalable
+It's important to note that this asynchronous, single-threaded,
+event-driven execution model isn't an infinitely scalable
 performance unicorn with silver bullets attached. It is just one
 of several models, and it has its limitations, one being that as
 of now, Node.js is just one single process, and it can run on only
@@ -504,12 +504,12 @@ deal with concurrency in an efficient and relatively
 straightforward manner.
 
 You might want to take the time to read Felix
-Geisendoerfer\'s excellent post [*Understanding node.js*][3]
+Geisendoerfer's excellent post [*Understanding node.js*][3]
 for additional background explanation.
 
-Let\'s play around a bit with this new concept. Can we prove that our
+Let's play around a bit with this new concept. Can we prove that our
 code continues after creating the server, even if no HTTP request
-happened and the callback function we passed isn\'t called? Let\'s try
+happened and the callback function we passed isn't called? Let's try
 it:
 
 {:lang="js" }
@@ -531,23 +531,23 @@ function (our callback) is triggered, and another text right *after*
 starting the HTTP server.
 
 When we start this (*node server.js*, as always), it will immediately
-output \"Server has started.\" on the command line. Whenever we request
+output "Server has started." on the command line. Whenever we request
 our server (by opening [http://localhost:8888/][2]{: rel="nofollow"} in
-our browser), the message \"Request received.\" is printed on the
+our browser), the message "Request received." is printed on the
 command line.
 
 Event-driven asynchronous server-side JavaScript with callbacks in
 action :-)
 
-(Note that our server will probably write \"Request received.\" to
-STDOUT two times upon opening the page in a browser. That\'s because
+(Note that our server will probably write "Request received." to
+STDOUT two times upon opening the page in a browser. That's because
 most browser will try to load the favicon by requesting
 http://localhost:8888/favicon.ico whenever you open
 http://localhost:8888/).
 
 ## How our server handles requests
 
-Ok, let\'s quickly analyze the rest of our server code, that is, the
+Ok, let's quickly analyze the rest of our server code, that is, the
 body of our callback function *onRequest()*.
 
 When the callback fires and our *onRequest()* function gets triggered,
@@ -561,23 +561,23 @@ your server).
 And our code does just that: Whenever a request is received, it uses the
 *response.writeHead()* function to send an HTTP status 200 and
 content-type in the HTTP response header, and the *response.write()*
-function to send the text \"Hello World\" in the HTTP response body.
+function to send the text "Hello World" in the HTTP response body.
 
 At last, we call *response.end()* to actually finish our response.
 
-At this point, we don\'t care for the details of the request, which is
-why we don\'t use the *request* object at all.
+At this point, we don't care for the details of the request, which is
+why we don't use the *request* object at all.
 
 ## Finding a place for our server module
 
 Ok, I promised we will get back to how to organize our application. We
 have the code for a very basic HTTP server in the file *server.js*, and
-I mentioned that it\'s common to have a main file called *index.js*
+I mentioned that it's common to have a main file called *index.js*
 which is used to bootstrap and start our application by making use of
 the other modules of the application (like the HTTP server module that
 lives in *server.js*).
 
-Let\'s talk about how to make server.js a real Node.js module that can
+Let's talk about how to make server.js a real Node.js module that can
 be used by our yet-to-be-written *index.js* main file.
 
 As you may have noticed, we already used modules in our code, like this:
@@ -589,14 +589,14 @@ As you may have noticed, we already used modules in our code, like this:
     
     http.createServer(...);
 
-Somewhere within Node.js lives a module called \"http\", and we can make
+Somewhere within Node.js lives a module called "http", and we can make
 use of it in our own code by requiring it and assigning the result of
 the require to a local variable.
 
 This makes our local variable an object that carries all the public
 methods the *http* module provides.
 
-It\'s common practice to choose the name of the module for the name of
+It's common practice to choose the name of the module for the name of
 the local variable, but we are free to choose whatever we like:
 
 {:lang="js" }
@@ -606,12 +606,12 @@ the local variable, but we are free to choose whatever we like:
     
     foo.createServer(...);
 
-Fine, it\'s clear how to make use of internal Node.js modules. How do we
+Fine, it's clear how to make use of internal Node.js modules. How do we
 create our own modules, and how do we use them?
 
-Let\'s find out by turning our *server.js* script into a real module.
+Let's find out by turning our *server.js* script into a real module.
 
-Turns out, we don\'t have to change that much. Making some code a module
+Turns out, we don't have to change that much. Making some code a module
 means we need to *export* those parts of its functionality that we want
 to provide to scripts that require our module.
 
@@ -653,7 +653,7 @@ As you can see, we can use our server module just like any internal
 module: by requiring its file and assigning it to a variable, its
 exported functions become available to us.
 
-That\'s it. We can now start our app via our main script, and it still
+That's it. We can now start our app via our main script, and it still
 does exactly the same:
 
     node index.js
@@ -667,25 +667,25 @@ depending on which URL the browser requested from our server, we need to
 react differently.
 
 For a very simple application, you could do this directly within the
-callback function *onRequest()*. But as I said, let\'s add a bit more
+callback function *onRequest()*. But as I said, let's add a bit more
 abstraction in order to make our example application a bit more
 interesting.
 
 Making different HTTP requests point at different parts of our code is
-called \"routing\" - well, then, let\'s create a module called *router*.
+called "routing" - well, then, let's create a module called *router*.
 
-## What\'s needed to \"route\" requests?
+## What's needed to "route" requests?
 
 We need to be able to feed the requested URL and possible additional GET
 and POST parameters into our router, and based on these the router then
-needs to be able to decide which code to execute (this \"code to
-execute\" is the third part of our application: a collection of request
+needs to be able to decide which code to execute (this "code to
+execute" is the third part of our application: a collection of request
 handlers that do the actual work when a request is received).
 
 So, we need to look into the HTTP requests and extract the requested URL
 as well as the GET/POST parameters from them. It could be argued if that
 should be part of the router or part of the server (or even a module of
-its own), but let\'s just agree on making it part of our HTTP server for
+its own), but let's just agree on making it part of our HTTP server for
 now.
 
 All the information we need is available through the *request* object
@@ -716,7 +716,7 @@ for request parameters:
 We can, of course, also use *querystring* to parse the body of a POST
 request for parameters, as we will see later.
 
-Let\'s now add to our *onRequest()* function the logic needed to find
+Let's now add to our *onRequest()* function the logic needed to find
 out which URL path the browser requested:
 
 {:lang="js"}
@@ -747,7 +747,7 @@ to have requests for the */start* and */upload* URLs handled by
 different parts of our code. We will see how everything fits together
 soon.
 
-Ok, it\'s time to actually write our router. Create a new file called
+Ok, it's time to actually write our router. Create a new file called
 *router.js*, with the following content:
 
 {:lang="js" }
@@ -758,8 +758,8 @@ Ok, it\'s time to actually write our router. Create a new file called
     exports.route = route;
 
 
-Of course, this code basically does nothing, but that\'s ok for now.
-Let\'s first see how to wire together this router with our server before
+Of course, this code basically does nothing, but that's ok for now.
+Let's first see how to wire together this router with our server before
 putting more logic into the router.
 
 Our HTTP server needs to know about and make use of our router. We could
@@ -769,7 +769,7 @@ going to loosely couple server and router by injecting this dependency
 (you may want to read [Martin Fowlers excellent post on Dependency
 Injection][4] for background information).
 
-Let\'s first extend our server\'s *start()* function in order to enable
+Let's first extend our server's *start()* function in order to enable
 us to pass the route function to be used by parameter:
 
 {:lang="js" }
@@ -795,7 +795,7 @@ us to pass the route function to be used by parameter:
     exports.start = start;
 
 
-And let\'s extend our *index.js* accordingly, that is, injecting the
+And let's extend our *index.js* accordingly, that is, injecting the
 route function of our router into the server:
 
 {:lang="js" }
@@ -805,10 +805,10 @@ route function of our router into the server:
     server.start(router.route);
 
 
-Again, we are passing a function, which by now isn\'t any news for us.
+Again, we are passing a function, which by now isn't any news for us.
 
 If we start our application now (*node index.js, as always*), and
-request an URL, you can now see from the application\'s output that our
+request an URL, you can now see from the application's output that our
 HTTP server makes use of our router and passes it the requested
 pathname:
 
@@ -825,23 +825,23 @@ May I once again stray away for a while and talk about functional
 programming again?
 
 Passing functions is not only a technical consideration. With regard to
-software design, it\'s almost philosophical. Just think about it: in our
+software design, it's almost philosophical. Just think about it: in our
 index file, we could have passed the *router* object into the server,
-and the server could have called this object\'s *route* function.
+and the server could have called this object's *route* function.
 
 This way, we would have passed a *thing*, and the server would have used
 this thing to *do* something. Hey, router thing, could you please route
 this for me?
 
-But the server doesn\'t need the thing. It only needs to get something
-*done*, and to get something done, you don\'t need things at all, you
-need *actions*. You don\'t need *nouns*, you need *verbs*.
+But the server doesn't need the thing. It only needs to get something
+*done*, and to get something done, you don't need things at all, you
+need *actions*. You don't need *nouns*, you need *verbs*.
 
-Understanding the fundamental mind-shift that\'s at the core of this
+Understanding the fundamental mind-shift that's at the core of this
 idea is what made me really understand functional programming.
 
-And I did understand it when reading Steve Yegge\'s masterpiece
-[Execution in the Kingdom of Nouns][5]. Go read it now, really. It\'s
+And I did understand it when reading Steve Yegge's masterpiece
+[Execution in the Kingdom of Nouns][5]. Go read it now, really. It's
 one of the best writings related to software I ever had the pleasure to
 encounter.
 
@@ -850,20 +850,20 @@ encounter.
 Back to business. Our HTTP server and our request router are now best
 friends and talk to each other as we intended.
 
-Of course, that\'s not enough. \"Routing\" means, we want to handle
+Of course, that's not enough. "Routing" means, we want to handle
 requests to different URLs differently. We would like to have the
-\"business logic\" for requests to */start* handled in another function
+"business logic" for requests to */start* handled in another function
 than requests to */upload*.
 
-Right now, the routing \"ends\" in the router, and the router is not the
-place to actually \"do\" something with the requests, because that
-wouldn\'t scale well once our application becomes more complex.
+Right now, the routing "ends" in the router, and the router is not the
+place to actually "do" something with the requests, because that
+wouldn't scale well once our application becomes more complex.
 
-Let\'s call these functions, where requests are routed to, *request
-handlers*. And let\'s tackle those next, because unless we have these in
-place there isn\'t much sense in doing anything with the router for now.
+Let's call these functions, where requests are routed to, *request
+handlers*. And let's tackle those next, because unless we have these in
+place there isn't much sense in doing anything with the router for now.
 
-New application part, new module - no surprise here. Let\'s create a
+New application part, new module - no surprise here. Let's create a
 module called requestHandlers, add a placeholder function for every
 request handler, and export these as methods of the module:
 
@@ -885,7 +885,7 @@ router something to route to.
 At this point we need to make a decision: do we hard-code usage of the
 requestHandlers module into the router, or do we want a bit more
 dependency injection? Although dependency injection, like every other
-pattern, shouldn\'t be used only for the sake of using it, in this case
+pattern, shouldn't be used only for the sake of using it, in this case
 it makes sense to loosely couple the router and its request handlers,
 and thus making the router really reusable.
 
@@ -896,7 +896,7 @@ on to the router from there.
 
 How are we going to pass them? Right now we have two handlers, but in a
 real application, this number is going to increase and vary, and we sure
-don\'t want to fiddle around mapping requests to handlers in the router
+don't want to fiddle around mapping requests to handlers in the router
 anytime a new URL / request handler is added. And having some *if
 request == x then call handler y* in the router would be more than ugly.
 
@@ -904,17 +904,17 @@ A varying number of items, each mapped to a string (the requested URL)?
 Well, sounds like an associative array would be a perfect fit.
 
 Well, this finding is slightly disappointed by the fact that JavaScript
-doesn\'t provide associative array - or does it? Turns out, it\'s
+doesn't provide associative array - or does it? Turns out, it's
 actually objects that we want to use if we need an associative array!
 
-There\'s a nice introduction to this at
+There's a nice introduction to this at
 [http://msdn.microsoft.com/en-us/magazine/cc163419.aspx][6], let me
 quote the relevant part:
 
-> In C++ or C#, when we’re talking about objects, we\'re referring to
+> In C++ or C#, when we’re talking about objects, we're referring to
 > instances of classes or structs. Objects have different properties and
 > methods, depending on which templates (that is, classes) they are
-> instantiated from. That\'s not the case with JavaScript objects. In
+> instantiated from. That's not the case with JavaScript objects. In
 > JavaScript, objects are just collections of name/value pairs - think
 > of a JavaScript object as a dictionary with string keys.
 
@@ -926,7 +926,7 @@ Ok, now finally back to the code. We decided we want to pass the list of
 requestHandlers as an object, and in order to achieve loose coupling we
 want to inject this object into the *route()*.
 
-Let\'s start with putting the object together in our main file
+Let's start with putting the object together in our main file
 *index.js*\:
 
 {:lang="js" }
@@ -941,18 +941,18 @@ Let\'s start with putting the object together in our main file
     
     server.start(router.route, handle);
 
-Although *handle* is more of a \"thing\" (a collection of request
+Although *handle* is more of a "thing" (a collection of request
 handlers), I propose we name it like a verb, because this will result in
 a fluent expression in our router, as we will see soon.
 
-As you can see, it\'s really simple to map different URLs to the same
-request handler: by adding a key/value pair of *\"/\"* and
+As you can see, it's really simple to map different URLs to the same
+request handler: by adding a key/value pair of *"/"* and
 *requestHandlers.start*, we can express in a nice and clean way that not
 only requests to */start*, but also requests to */* shall be handled by
 the *start* handler.
 
 After defining our object, we pass it into the server as an additional
-parameter. Let\'s change our *server.js* to make use of it:
+parameter. Let's change our *server.js* to make use of it:
 
 {:lang="js" }
     var http = require("http");
@@ -976,10 +976,10 @@ parameter. Let\'s change our *server.js* to make use of it:
     
     exports.start = start;
 
-We\'ve added the *handle* parameter to our *start()* function, and pass
+We've added the *handle* parameter to our *start()* function, and pass
 the handle object on to the *route()* callback, as its first parameter.
 
-Let\'s change the *route()* function accordingly, in our *router.js*
+Let's change the *route()* function accordingly, in our *router.js*
 file:
 
 {:lang="js" }
@@ -999,9 +999,9 @@ exists, and if it does, we simply call the according function. Because
 we can access our request handler functions from our object just as we
 would access an element of an associative array, we have this nice
 fluent *handle\[pathname\]();* expression I talked about earlier:
-\"Please, *handle* this *pathname*\".
+"Please, *handle* this *pathname*".
 
-Ok, that\'s all we need to wire server, router, and request handlers
+Ok, that's all we need to wire server, router, and request handlers
 together! When starting our application and requesting
 [http://localhost:8888/start][7]{: rel="nofollow"} in our browser, we
 can prove that the correct request handler was indeed called:
@@ -1026,10 +1026,10 @@ request handler:
 Beautiful. Now if only the request handlers could actually send
 something back to the browser, that would be even better, right?
 
-Remember, the \"Hello World\" your browser displays upon requesting a
+Remember, the "Hello World" your browser displays upon requesting a
 page still comes from the *onRequest* function in our *server.js* file.
 
-\"Handling request\" means \"answering requests\" after all, thus we
+"Handling request" means "answering requests" after all, thus we
 need to enable our request handlers to speak with the browser just like
 our *onRequest* function does.
 
@@ -1038,13 +1038,13 @@ our *onRequest* function does.
 The straight-forward approach we - as developers with a background in
 PHP or Ruby - might want to follow is actually very deceitful: it works
 like a charm, seems to make a lot of sense, and then suddenly screws
-things up when we don\'t expect it.
+things up when we don't expect it.
 
-What I mean by \"straight-forward approach\" is this: make the request
+What I mean by "straight-forward approach" is this: make the request
 handlers *return()* the content they want to display to the user, and
 send this response data in the *onRequest* function back to the user.
 
-Let\'s just do this, and then see why it\'s not such an overly good
+Let's just do this, and then see why it's not such an overly good
 idea.
 
 We start with the request handlers and make them return what we would
@@ -1112,29 +1112,29 @@ via the router, transforming *server.js* into:
 
 If we start our rewritten application, everything works like a charm:
 requesting [http://localhost:8888/start][7]{: rel="nofollow"} results in
-\"Hello Start\" being displayed in the browser, requesting
-[http://localhost:8888/upload][8]{: rel="nofollow"} gives us \"Hello
-Upload\", and [http://localhost:8888/foo][9]{: rel="nofollow"} produces
-\"404 Not found\".
+"Hello Start" being displayed in the browser, requesting
+[http://localhost:8888/upload][8]{: rel="nofollow"} gives us "Hello
+Upload", and [http://localhost:8888/foo][9]{: rel="nofollow"} produces
+"404 Not found".
 
 Ok, then why is that a problem? The short answer: because we will run
 into problems if one the request handlers wants to make use of a
 non-blocking operation in the future.
 
-Let\'s take a bit more time for the long answer.
+Let's take a bit more time for the long answer.
 
 ### Blocking and non-blocking
 
 As said, the problems will arise when we include non-blocking operations
-in the request handlers. But let\'s talk about blocking operations
+in the request handlers. But let's talk about blocking operations
 first, then about non-blocking operations.
 
-And instead of trying to explain what \"blocking\" and \"non-blocking\"
-means, let\'s demonstrate ourselves what happens if we add a blocking
+And instead of trying to explain what "blocking" and "non-blocking"
+means, let's demonstrate ourselves what happens if we add a blocking
 operation to our request handlers.
 
 To do this, we will modify our *start* request handler to make it wait
-10 seconds before returning its \"Hello Start\" string. Because there is
+10 seconds before returning its "Hello Start" string. Because there is
 no such thing as *sleep()* in JavaScript, we will use a clever hack for
 that.
 
@@ -1162,27 +1162,27 @@ Please modify *requestHandlers.js* as follows:
     exports.upload = upload;
 
 Just to make clear what that does: when the function *start()* is
-called, Node.js waits 10 seconds and only then returns \"Hello Start\".
+called, Node.js waits 10 seconds and only then returns "Hello Start".
 When calling *upload()*, it returns immediately, just like before.
 
 (Of course, you should imagine that instead of sleeping for 10 seconds,
 there would be a real life blocking operation in *start()*, like some
 sort of long-running computation.)
 
-Let\'s see what this change does.
+Let's see what this change does.
 
 As always, we need to restart our server. This time, I ask you to follow
-a slightly complex \"protocol\" in order to see what happens: First,
+a slightly complex "protocol" in order to see what happens: First,
 open two browser windows or tabs. In the first browser window, please
 enter [http://localhost:8888/start][7]{: rel="nofollow"} into the
 address bar, but do not yet open this url!
 
-In the second browser window\'s address bar, enter
+In the second browser window's address bar, enter
 [http://localhost:8888/upload][8]{: rel="nofollow"}, and again, please
 do not yet hit enter.
 
-Now, do as follows: hit enter on the first window (\"/start\"), then
-quickly change to the second window (\"/upload\") and hit enter, too.
+Now, do as follows: hit enter on the first window ("/start"), then
+quickly change to the second window ("/upload") and hit enter, too.
 
 What you will notice is this: The /start URL takes 10 seconds to load,
 as we would expect. But the /upload URL *also* takes 10 seconds to load,
@@ -1195,11 +1195,11 @@ process with them. Instead, whenever expensive operations must be
 executed, these must be put in the background, and their events
 must be handled by the event loop.
 
-And we will now see why the way we constructed the \"request handler
-response handling\" in our application doesn\'t allow us to make proper
+And we will now see why the way we constructed the "request handler
+response handling" in our application doesn't allow us to make proper
 use of non-blocking operations.
 
-Once again, let\'s try to experience the problem first-hand by modifying
+Once again, let's try to experience the problem first-hand by modifying
 our application.
 
 We are going to use our *start* request handler for this again. Please
@@ -1233,38 +1233,38 @@ simple yet useful non-blocking operation: *exec()*.
 
 What *exec()* does is, it executes a shell command from within Node.js.
 In this example, we are going to use it to get a list of all files in
-the current directory (\"ls -lah\"), allowing us to display this list in
+the current directory ("ls -lah"), allowing us to display this list in
 the browser of a user requesting the */start* URL.
 
 What the code does is straightforward: create a new variable *content*
-(with an initial value of \"empty\"), execute \"ls -lah\", fill the
+(with an initial value of "empty"), execute "ls -lah", fill the
 variable with the result, and return it.
 
 As always, we will start our application, and visit
 [http://localhost:8888/start][7]{: rel="nofollow"}.
 
-Which loads a beautiful web page that displays the string \"empty\".
-What\'s going wrong here?
+Which loads a beautiful web page that displays the string "empty".
+What's going wrong here?
 
 Well, as you may have already guessed, *exec()* does its magic in a
-non-blocking fashion. That\'s a good thing, because this way we can
+non-blocking fashion. That's a good thing, because this way we can
 execute very expensive shell operations (like, e.g., copying huge files
 around or similar stuff) without forcing our application into a full
 stop as the blocking *sleep* operation did.
 
-(If you would like to prove this, replace \"ls -lah\" with a more
-expensive operation like \"find /\").
+(If you would like to prove this, replace "ls -lah" with a more
+expensive operation like "find /").
 
-But we aren\'t exactly happy with our elegant non-blocking operation,
-when our browser doesn\'t display its result, right?
+But we aren't exactly happy with our elegant non-blocking operation,
+when our browser doesn't display its result, right?
 
-Well, then, let\'s fix it. And while we are at it, let\'s try to
-understand why the current architecture doesn\'t work.
+Well, then, let's fix it. And while we are at it, let's try to
+understand why the current architecture doesn't work.
 
 The problem is that *exec()*, in order to work non-blocking, makes use
 of a callback function.
 
-In our example, it\'s an anonymous function which is passed as the
+In our example, it's an anonymous function which is passed as the
 second parameter to the *exec()* function call:
 
 {:lang="js" }
@@ -1275,37 +1275,37 @@ second parameter to the *exec()* function call:
 And herein lies the root of our problem: our own code is executed
 synchronous, which means that immediately after calling *exec()*,
 Node.js continues to execute *return content;*. At this point, *content*
-is still \"empty\", due to the fact that the callback function passed to
+is still "empty", due to the fact that the callback function passed to
 *exec()* has not yet been called - because *exec()* operates
 asynchronous.
 
-Now, \"ls -lah\" is a very inexpensive and fast operation (unless there
+Now, "ls -lah" is a very inexpensive and fast operation (unless there
 are millions of files in the directory). Which is why the callback is
 called relatively expeditious - but it nevertheless happens
 asynchronously.
 
-Thinking about a more expensive command makes this more obvious: \"find
-/\" takes about 1 minute on my machine, but if I replace \"ls -lah\"
-with \"find /\" in the request handler, I still immediately receive an
-HTTP response when opening the /start URL - it\'s clear that *exec()*
+Thinking about a more expensive command makes this more obvious: "find
+/" takes about 1 minute on my machine, but if I replace "ls -lah"
+with "find /" in the request handler, I still immediately receive an
+HTTP response when opening the /start URL - it's clear that *exec()*
 does something in the background, while Node.js itself continues with
 the application, and we may assume that the callback function we passed
-into *exec()* will be called only when the \"find /\" command has
+into *exec()* will be called only when the "find /" command has
 finished running.
 
 But how can we achieve our goal, i.e. showing the user a list of files
 in the current directory?
 
-Well, after learning how to *not* do it, let\'s discuss how to make our
+Well, after learning how to *not* do it, let's discuss how to make our
 request handlers respond to browser requests the right way.
 
 ### Responding request handlers with non-blocking operations
 
-I\'ve just used the phrase \"the right way\". Dangerous stuff. Quite
-often, there is no single \"right way\".
+I've just used the phrase "the right way". Dangerous stuff. Quite
+often, there is no single "right way".
 
 But one possible solution for this is, as often with Node.js, to pass
-functions around. Let\'s examine this.
+functions around. Let's examine this.
 
 Right now, our application is able to transport the content (which the
 request handlers would like to display to the user) from the request
@@ -1314,15 +1314,15 @@ application (request handler -&gt; router -&gt; server).
 
 Our new approach is as follows: instead of bringing the content to the
 server, we will bring the server to the content. To be more precise, we
-will inject the *response* object (from our server\'s callback function
+will inject the *response* object (from our server's callback function
 *onRequest()*) through the router into the request handlers. The
-handlers will then be able to use this object\'s functions to respond to
+handlers will then be able to use this object's functions to respond to
 requests themselves.
 
 Enough explanation, here is the step by step recipe on how to change our
 application.
 
-Let\'s start with our *server.js*\:
+Let's start with our *server.js*\:
 
 {:lang="js" }
     var http = require("http");
@@ -1368,7 +1368,7 @@ Same pattern: instead of expecting a return value from our request
 handlers, we pass the *respond* object on.
 
 If no request handler can be used, we now take care of responding with a
-proper \"404\" header and body ourselves.
+proper "404" header and body ourselves.
 
 And last but not least, we modify *requestHandlers.js*\:
 
@@ -1400,8 +1400,8 @@ Our handler functions need to accept the response parameter, and have to
 make use of them in order to respond to the request directly.
 
 The *start* handler will respond from within the anonymous *exec()*
-callback, and the *upload* handler still simply replies with \"Hello
-Upload\", but now by making use of the *response* object.
+callback, and the *upload* handler still simply replies with "Hello
+Upload", but now by making use of the *response* object.
 
 If we start our application again (*node index.js*), this should work as
 expected.
@@ -1442,7 +1442,7 @@ immediately, even if /start is still computing.
 
 ## Serving something useful
 
-Until now, what we have done is all fine and dandy, but we haven\'t
+Until now, what we have done is all fine and dandy, but we haven't
 created any value for the customers of our award-winning website.
 
 Our server, router, and request handlers are in place, thus now we can
@@ -1452,31 +1452,31 @@ viewing the uploaded file in the browser. For the sake of simplicity we
 will assume that only image files are going to be uploaded and displayed
 through the application.
 
-Ok, let\'s take it step by step, but with most of the techniques and
-principles of JavaScript explained by now, let\'s at the same time
+Ok, let's take it step by step, but with most of the techniques and
+principles of JavaScript explained by now, let's at the same time
 accelerate a bit. This author likes to hear himself talking way too much
 anyways.
 
 Here, step by step means roughly two steps: We will first look at how to
 handle incoming POST requests (but not file uploads), and in a second
 step, we will make use of an external Node.js module for the file upload
-handling. I\'ve chosen this approach for two reasons.
+handling. I've chosen this approach for two reasons.
 
 First, handling basic POST requests is relatively simple with Node.js,
 but still teaches us enough to be worth exercising it.   
  Second, handling file uploads (i.e., multipart POST requests) is *not*
 simple with Node.js, and therefore is beyond the scope of this tutorial,
 but using an external module is itself a lesson that makes sense to be
-included in a beginner\'s tutorial.
+included in a beginner's tutorial.
 
 ## Handling POST requests
 
-Let\'s keep this banally simple: We will present a textarea that can be
+Let's keep this banally simple: We will present a textarea that can be
 filled by the user and submitted to the server in a POST request. Upon
 receiving and handling this request, we will display the content of the
 textarea.
 
- The HTML for this textarea form needs to be served by our */start* request handler, so let\'s add it right away, in file *requestHandlers.js*\:     
+ The HTML for this textarea form needs to be served by our */start* request handler, so let's add it right away, in file *requestHandlers.js*\:     
 
 {:lang="js" }
     function start(response) {
@@ -1511,18 +1511,18 @@ textarea.
     exports.upload = upload;
 
 
-Now if this isn\'t going to win the Webby Awards, then I don\'t know
+Now if this isn't going to win the Webby Awards, then I don't know
 what could. You should see this very simple form when requesting
 [http://localhost:8888/start][7]{: rel="nofollow"} in your browser. If
-not, you probably didn\'t restart the application.
+not, you probably didn't restart the application.
 
 I hear you: having view content right in the request handler is ugly.
 However, I decided to not include that extra level of abstraction (i.e.,
 separating view and controller logic) in this tutorial, because I think
-that it doesn\'t teach us anything worth knowing in the context of
+that it doesn't teach us anything worth knowing in the context of
 JavaScript or Node.js.
 
-Let\'s rather use the remaining screen space for a more interesting
+Let's rather use the remaining screen space for a more interesting
 problem, that is, handling the POST request that will hit our */upload*
 request handler when the user submits this form.
 
@@ -1557,11 +1557,11 @@ This basically looks like this:
     });
 
 The question arises where to implement this logic. We currently can
-access the *request* object in our server only - we don\'t pass it on to
+access the *request* object in our server only - we don't pass it on to
 the router and the request handlers, like we did with the *response*
 object.
 
-In my opinion, it\'s an HTTP servers job to give the application all the
+In my opinion, it's an HTTP servers job to give the application all the
 data from a requests it needs to do its job. Therefore, I suggest we
 handle the POST data processing right in the server and pass the final
 data on to the router and the request handlers, which then can decide
@@ -1607,9 +1607,9 @@ Here we go, starting with *server.js*\:
 
 We basically did three things here: First, we defined that we expect the
 encoding of the received data to be UTF-8, we added an event listener
-for the \"data\" event which step by step fills our new *postData*
+for the "data" event which step by step fills our new *postData*
 variable whenever a new chunk of POST data arrives, and we moved the
-call to our router into the *end* event callback to make sure it\'s only
+call to our router into the *end* event callback to make sure it's only
 called when all POST data is gathered. We also pass the POST data into
 the router, because we are going to need it in our request handlers.
 
@@ -1621,7 +1621,7 @@ I suggest playing around with this a bit. Put small amounts of text into
 the textarea as well as lots of text, and you will see that for the
 larger texts, the *data* callback is indeed called multiple times.
 
-Let\'s add even more awesome to our app. On the /upload page, we will
+Let's add even more awesome to our app. On the /upload page, we will
 display the received content. To make this possible, we need to pass the
 *postData* on to the request handlers, in *router.js*\:
 
@@ -1675,7 +1675,7 @@ And in *requestHandlers.js*, we include the data in our response of the
     exports.start = start;
     exports.upload = upload;
 
-That\'s it, we are now able to receive POST data and use it in our
+That's it, we are now able to receive POST data and use it in our
 request handlers.
 
 One last thing for this topic: what we pass on to the router and the
@@ -1721,26 +1721,26 @@ this:
     exports.start = start;
     exports.upload = upload;
 
-Well, for a beginner\'s tutorial, that\'s all there is to say about
+Well, for a beginner's tutorial, that's all there is to say about
 handling POST data.
 
 ## Handling file uploads
 
-Let\'s tackle our final use case. Our plan was to allow users to upload
+Let's tackle our final use case. Our plan was to allow users to upload
 an image file, and display the uploaded image in the browser.
 
-Back in the 90\'s this would have qualified as a business model for an
+Back in the 90's this would have qualified as a business model for an
 IPO, today it must suffice to teach us two things: how to install
 external Node.js libraries, and how to make use of them in our own code.
 
 The external module we are going to use is *node-formidable* by Felix
 Geisendoerfer. It nicely abstracts away all the nasty details of parsing
 incoming file data. At the end of the day, handling incoming files is
-\"only\" about handling POST data - but the devil really *is* in the
+"only" about handling POST data - but the devil really *is* in the
 details here, and using a ready-made solution makes a lot of sense in
 this case.
 
-In order to make use of Felix\' code, the according Node.js module needs
+In order to make use of Felix' code, the according Node.js module needs
 to be installed. Node.js ships with its own package manager, dubbed
 *NPM*. It allows us to install external Node.js modules in a very
 convenient fashion. Given a working Node.js installation, it boils down
@@ -1829,14 +1829,14 @@ the form-parsing logic of formidable into our code structure, plus we
 will need to find out how to serve the content of the uploaded file
 (which is saved into the */tmp* folder) to a requesting browser.
 
-Let\'s tackle the latter one first: if there is an image file on our
+Let's tackle the latter one first: if there is an image file on our
 local hardrive, how do we serve it to a requesting browser?
 
 We are obviously going to read the contents of this file into our
-Node.js server, and unsurprisingly, there is a module for that - it\'s
+Node.js server, and unsurprisingly, there is a module for that - it's
 called *fs*.
 
-Let\'s add another request handler for the URL */show*, which will
+Let's add another request handler for the URL */show*, which will
 hardcodingly display the contents of the file */tmp/test.png*. It of
 course makes a lot of sense to save a real png image file to this
 location first.
@@ -1924,8 +1924,8 @@ Fine. All we need to do now is
 
 Step 1 is simple. We need to add an encoding type of
 *multipart/form-data* to our HTML form, remove the textarea, add a file
-upload input field, and change the submit button text to \"Upload
-file\". Let\'s do just that in file *requestHandlers.js*\:
+upload input field, and change the submit button text to "Upload
+file". Let's do just that in file *requestHandlers.js*\:
 
 {:lang="js" }
     var querystring = require("querystring"),
@@ -1990,15 +1990,15 @@ panda. Looks like we will have to pass the *request* object all the way
 from the server to the router to the request handler. There may be more
 elegant solutions, but this approach should do the job for now.
 
-And while we are at it, let\'s remove the whole *postData* stuff in our
-server and request handlers - we won\'t need it for handling the file
-upload, and it even raises a problem: we already \"consumed\" the *data*
+And while we are at it, let's remove the whole *postData* stuff in our
+server and request handlers - we won't need it for handling the file
+upload, and it even raises a problem: we already "consumed" the *data*
 events of the *request* object in the server, which means that
-*form.parse*, which also needs to consume those events, wouldn\'t
-receive any more data from them (because Node.js doesn\'t buffer any
+*form.parse*, which also needs to consume those events, wouldn't
+receive any more data from them (because Node.js doesn't buffer any
 data).
 
-Let\'s start with *server.js* - we remove the postData handling and the
+Let's start with *server.js* - we remove the postData handling and the
 *request.setEncoding* line (which is going to be handled by
 node-formidable itself), and we pass *request* to the router instead:
 
@@ -2019,7 +2019,7 @@ node-formidable itself), and we pass *request* to the router instead:
     
     exports.start = start;
 
-Next comes *router.js* - we don\'t need to pass *postData* on anymore,
+Next comes *router.js* - we don't need to pass *postData* on anymore,
 and instead pass *request*\:
 
 {:lang="js" }
@@ -2044,11 +2044,11 @@ file is renamed to */tmp/test.png* ourselves. Yes, we keep things really
 simple and assume that only PNG images will be uploaded.
 
 There is a bit of extra-complexity in the rename logic: the Windows
-implementation of node doesn\'t like it when you try to rename a file
+implementation of node doesn't like it when you try to rename a file
 onto the position of an existing file, which is why we need to delete
 the file in case of an error.
 
-Let\'s put the pieces of managing the uploaded file and renaming it
+Let's put the pieces of managing the uploaded file and renaming it
 together now, in file *requestHandlers.js*\:
 
 {:lang="js" }
@@ -2120,7 +2120,7 @@ together now, in file *requestHandlers.js*\:
     exports.upload = upload;
     exports.show = show;
 
-And that\'s it. Restart the server, and the complete use case will be
+And that's it. Restart the server, and the complete use case will be
 available. Select a local PNG image from your hardrive, upload it to the
 server, and have it displayed in the web page.
 
@@ -2132,12 +2132,12 @@ JavaScript, functional programming, blocking and non-blocking
 operations, callbacks, events, custom, internal and external modules,
 and a lot more.
 
-Of course, there\'s a lot of stuff we did not talk about: how to talk to
+Of course, there's a lot of stuff we did not talk about: how to talk to
 a database, how to write unit tests, how to create external modules that
 are installable via NPM, or even something simple like how to handle GET
 requests.
 
-But that\'s the fate of every book aimed at beginners - it can\'t talk
+But that's the fate of every book aimed at beginners - it can't talk
 about every single aspect in every single detail.
 
 The good news is, the Node.js community is extremly vibrant (think of an
