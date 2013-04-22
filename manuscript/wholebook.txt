@@ -9,7 +9,7 @@ applications for Node.js, teaching you everything you need to know about
 
 You are reading the final version of this book, i.e., updates are only
 done to correct errors or to reflect changes in new versions of Node.js.
-It was last updated on September 9, 2012.
+It was last updated on April 22, 2013.
 
 The code samples in this book are tested to work with Node.js version
 0.8.8.
@@ -1782,7 +1782,7 @@ different parts play together:
       if (req.url == '/upload' && req.method.toLowerCase() == 'post') {
         // parse a file upload
         var form = new formidable.IncomingForm();
-        form.parse(req, function(err, fields, files) {
+        form.parse(req, function(error, fields, files) {
           res.writeHead(200, {'content-type': 'text/plain'});
           res.write('received upload:\n\n');
           res.end(sys.inspect({fields: fields, files: files}));
@@ -1879,9 +1879,9 @@ We are going to modify *requestHandlers.js* as follows:
     function show(response, postData) {
       console.log("Request handler 'show' was called.");
       fs.readFile("/tmp/test.png", "binary", function(error, file) {
-        if(error) {
+        if (error) {
           response.writeHead(500, {"Content-Type": "text/plain"});
-          response.write(err + "\n");
+          response.write(error + "\n");
           response.end();
         } else {
           response.writeHead(200, {"Content-Type": "image/png"});
@@ -1964,9 +1964,9 @@ file". Let's do just that in file *requestHandlers.js*\:
     function show(response, postData) {
       console.log("Request handler 'show' was called.");
       fs.readFile("/tmp/test.png", "binary", function(error, file) {
-        if(error) {
+        if (error) {
           response.writeHead(500, {"Content-Type": "text/plain"});
-          response.write(err + "\n");
+          response.write(error + "\n");
           response.end();
         } else {
           response.writeHead(200, {"Content-Type": "image/png"});
@@ -2088,8 +2088,8 @@ together now, in file *requestHandlers.js*\:
     
         /* Possible error on Windows systems:
            tried to rename to an already existing file */
-        fs.rename(files.upload.path, "/tmp/test.png", function(err) {
-          if (err) {
+        fs.rename(files.upload.path, "/tmp/test.png", function(error) {
+          if (error) {
             fs.unlink("/tmp/test.png");
             fs.rename(files.upload.path, "/tmp/test.png");
           }
