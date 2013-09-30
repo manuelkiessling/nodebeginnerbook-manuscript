@@ -45,9 +45,9 @@ If you would like to accept this offer, simply go to
 
 [http://leanpub.com/nodecraftsman][14]
 
-and use the coupon code *nodebeginner*.
+and use the coupon code *nodereader*.
 
-This offer is valid until October 26, 2013.
+This offer is valid until November 30, 2013.
 
 
 
@@ -2213,9 +2213,9 @@ If you would like to accept this offer, simply go to
 
 [http://leanpub.com/nodecraftsman][14]
 
-and use the coupon code *nodebeginner*.
+and use the coupon code *nodereader*.
 
-This offer is valid until October 26, 2013.
+This offer is valid until November 30, 2013.
 
 
 [1]: https://github.com/joyent/node/wiki/Installation "Building and Installing Node.js"
