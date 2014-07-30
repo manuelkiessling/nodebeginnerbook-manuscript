@@ -44,7 +44,7 @@ This way, you have the following advantages:
 
 If you would like to accept this offer, simply go to
 
-[https://leanpub.com/nodecraftsman][14]
+https://leanpub.com/nodecraftsman
 
 and use the coupon code *nodereader*.
 
@@ -2177,7 +2177,7 @@ A lot of readers have asked for a sequel, a book that starts off where
 development, learning about database handling, frameworks, unit tests,
 and much more.
 
-I have recently started to work on such a book. It is called *The Node
+I have now started to work on such a book. It is called *The Node
 Craftsman Book*, and it is available through Leanpub, too.
 
 This new book is currently work in progress, just like *The Node Beginner Book*
@@ -2186,15 +2186,16 @@ was when it first came out.
 My plan is to constantly expand *The Node Craftsman Book* while collecting and
 using feedback from the community.
 
-Thus, I decided to release a first version of the new book as early as possible.
-
 As of now, *The Node Craftsman Book* contains the following chapters:
 
 * Working with NPM and Packages
-* Test-Driven Node.js Development
 * Object-Oriented JavaScript
+* Test-Driven Node.js Development
+* Using and creating Event Emitters
+* Node.js and MySQL
+* Node.js and MongoDB
 
-It's already at 28 pages, and more chapters will follow soon.
+It's already at 82 pages, and more chapters will follow soon.
 
 The final price of the finished book will be $9.99, but as a reader and buyer of
 *The Node Beginner Book*, you have the opportunity to buy the new book while it
@@ -2210,11 +2211,9 @@ This way, you have the following advantages:
 
 If you would like to accept this offer, simply go to
 
-[http://leanpub.com/nodecraftsman][14]
+https://leanpub.com/nodecraftsman
 
 and use the coupon code *nodereader*.
-
-This offer is valid until November 30, 2013.
 
 
 [1]: https://github.com/joyent/node/wiki/Installation "Building and Installing Node.js"
@@ -2230,4 +2229,3 @@ This offer is valid until November 30, 2013.
 [11]: http://localhost:8888/show 
 [12]: https://github.com/joyent/node/wiki 
 [13]: http://www.nodecloud.org/ 
-[14]: http://leanpub.com/nodecraftsman
