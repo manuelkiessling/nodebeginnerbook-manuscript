@@ -992,7 +992,7 @@ Let's start with putting the object together in our main file
     var router = require("./router");
     var requestHandlers = require("./requestHandlers");
     
-    var handle = {}
+    var handle = {};
     handle["/"] = requestHandlers.start;
     handle["/start"] = requestHandlers.start;
     handle["/upload"] = requestHandlers.upload;
@@ -1952,7 +1952,7 @@ We also need to map this new request handler to the URL */show* in file
     var router = require("./router");
     var requestHandlers = require("./requestHandlers");
     
-    var handle = {}
+    var handle = {};
     handle["/"] = requestHandlers.start;
     handle["/start"] = requestHandlers.start;
     handle["/upload"] = requestHandlers.upload;
