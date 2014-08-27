@@ -28,7 +28,7 @@ As of now, *The Node Craftsman Book* contains the following chapters:
 * Node.js and MySQL
 * Node.js and MongoDB
 
-It's already at 82 pages, and more chapters will follow soon.
+It's already at 94 pages, and more chapters will follow soon.
 
 The final price of the finished book will be $9.99, but as a reader and buyer of
 *The Node Beginner Book*, you have the opportunity to buy the new book while it
@@ -68,7 +68,7 @@ applications for Node.js, teaching you everything you need to know about
 
 You are reading the final version of this book, i.e., updates are only
 done to correct errors or to reflect changes in new versions of Node.js.
-It was last updated on July 30, 2014.
+It was last updated on August 27, 2014.
 
 The code samples in this book are tested to work with Node.js version
 0.10.29.
@@ -2194,7 +2194,7 @@ As of now, *The Node Craftsman Book* contains the following chapters:
 * Node.js and MySQL
 * Node.js and MongoDB
 
-It's already at 82 pages, and more chapters will follow soon.
+It's already at 94 pages, and more chapters will follow soon.
 
 The final price of the finished book will be $9.99, but as a reader and buyer of
 *The Node Beginner Book*, you have the opportunity to buy the new book while it
