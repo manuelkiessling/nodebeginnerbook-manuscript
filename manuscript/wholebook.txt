@@ -44,7 +44,7 @@ This way, you have the following advantages:
 
 If you would like to accept this offer, simply go to
 
-https://leanpub.com/nodecraftsman
+<https://leanpub.com/nodecraftsman>
 
 and use the coupon code *nodereader*.
 
@@ -212,8 +212,8 @@ Thus, Node.js is really two things: a runtime environment and a library.
 
 In order to make use of these, you need to install Node.js. Instead of
 repeating the process here, I kindly ask you to visit [the official
-installation instructions][1]. Please come back once you are up and
-running.
+installation instructions](https://github.com/joyent/node/wiki/Installation).
+Please come back once you are up and running.
 
 ## "Hello World"
 
@@ -243,9 +243,9 @@ Let's keep it simple, but realistic:
 
 * The user should be able to use our application with a web browser
 * The user should see a welcome page when requesting
-  http://*domain*/start which displays a file upload form
+  http://localhost:8888/start which displays a file upload form
 * By choosing an image file to upload and submitting the form, this
-  image should then be uploaded to http://*domain*/upload, where it is
+  image should then be uploaded to http://localhost:8888/upload, where it is
   displayed once the upload is finished
 
 Fair enough. Now, you could achieve this goal by googling and hacking
@@ -339,9 +339,8 @@ running and testing it. First, execute your script with Node.js:
 
     node server.js
 
-Now, open your browser and point it at [http://localhost:8888/][2]{:
-rel="nofollow"}. This should display a web page that says "Hello
-World".
+Now, open your browser and point it at http://localhost:8888/.
+This should display a web page that says "Hello World".
 
 That's quite interesting, isn't it. How about talking about what's
 going on here and leaving the question of how to organize our project
@@ -563,7 +562,7 @@ deal with concurrency in an efficient and relatively
 straightforward manner.
 
 You might want to take the time to read Felix
-Geisendoerfer's excellent post [*Understanding node.js*][3]
+Geisendoerfer's excellent post [*Understanding node.js*](http://debuggable.com/posts/understanding-node-js:4bd98440-45e4-4a9a-8ef7-0f7ecbdd56cb)
 for additional background explanation.
 
 Let's play around a bit with this new concept. Can we prove that our
@@ -591,7 +590,7 @@ starting the HTTP server.
 
 When we start this (*node server.js*, as always), it will immediately
 output "Server has started." on the command line. Whenever we request
-our server (by opening [http://localhost:8888/][2]{: rel="nofollow"} in
+our server (by opening http://localhost:8888/ in
 our browser), the message "Request received." is printed on the
 command line.
 
@@ -768,9 +767,9 @@ for request parameters:
                                     ---       -----
                                      |          |
                                      |          |
-                  querystring(string)["foo"]    |
+            querystring.parse(string)["foo"]    |
                                                 |
-                             querystring(string)["hello"]
+                       querystring.parse(string)["hello"]
 
 We can, of course, also use *querystring* to parse the body of a POST
 request for parameters, as we will see later.
@@ -826,7 +825,7 @@ hard-wire this dependency into the server, but because we learned the
 hard way from our experience with other programming languages, we are
 going to loosely couple server and router by injecting this dependency
 (you may want to read [Martin Fowlers excellent post on Dependency
-Injection][4] for background information).
+Injection](http://martinfowler.com/articles/injection.html) for background information).
 
 Let's first extend our server's *start()* function in order to enable
 us to pass the route function to be used by parameter:
@@ -900,9 +899,9 @@ Understanding the fundamental mind-shift that's at the core of this
 idea is what made me really understand functional programming.
 
 And I did understand it when reading Steve Yegge's masterpiece
-[Execution in the Kingdom of Nouns][5]. Go read it now, really. It's
-one of the best writings related to software I ever had the pleasure to
-encounter.
+[Execution in the Kingdom of Nouns](http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html).
+Go read it now, really. It's one of the best writings related to
+software I ever had the pleasure to encounter.
 
 ## Routing to real request handlers
 
@@ -963,11 +962,11 @@ A varying number of items, each mapped to a string (the requested URL)?
 Well, sounds like an associative array would be a perfect fit.
 
 Well, this finding is slightly disappointed by the fact that JavaScript
-doesn't provide associative array - or does it? Turns out, it's
+doesn't provide associative arrays - or does it? Turns out, it's
 actually objects that we want to use if we need an associative array!
 
 There's a nice introduction to this at
-[http://msdn.microsoft.com/en-us/magazine/cc163419.aspx][6], let me
+<http://msdn.microsoft.com/en-us/magazine/cc163419.aspx>, let me
 quote the relevant part:
 
 > In C++ or C#, when we’re talking about objects, we're referring to
@@ -1062,7 +1061,7 @@ fluent *handle\[pathname\]();* expression I talked about earlier:
 
 Ok, that's all we need to wire server, router, and request handlers
 together! When starting our application and requesting
-[http://localhost:8888/start][7]{: rel="nofollow"} in our browser, we
+http://localhost:8888/start in our browser, we
 can prove that the correct request handler was indeed called:
 
 {:lang="text"}
@@ -1071,7 +1070,7 @@ can prove that the correct request handler was indeed called:
     About to route a request for /start
     Request handler 'start' was called.
 
-And opening [http://localhost:8888/][2]{: rel="nofollow"} in our browser
+And opening http://localhost:8888/ in our browser
 proves that these requests, too, are indeed handled by the *start*
 request handler:
 
@@ -1170,10 +1169,10 @@ via the router, transforming *server.js* into:
     exports.start = start;
 
 If we start our rewritten application, everything works like a charm:
-requesting [http://localhost:8888/start][7]{: rel="nofollow"} results in
+requesting http://localhost:8888/start results in
 "Hello Start" being displayed in the browser, requesting
-[http://localhost:8888/upload][8]{: rel="nofollow"} gives us "Hello
-Upload", and [http://localhost:8888/foo][9]{: rel="nofollow"} produces
+http://localhost:8888/upload gives us "Hello
+Upload", and http://localhost:8888/foo produces
 "404 Not found".
 
 Ok, then why is that a problem? The short answer: because we will run
@@ -1233,11 +1232,11 @@ Let's see what this change does.
 As always, we need to restart our server. This time, I ask you to follow
 a slightly complex "protocol" in order to see what happens: First,
 open two browser windows or tabs. In the first browser window, please
-enter [http://localhost:8888/start][7]{: rel="nofollow"} into the
+enter http://localhost:8888/start into the
 address bar, but do not yet open this url!
 
 In the second browser window's address bar, enter
-[http://localhost:8888/upload][8]{: rel="nofollow"}, and again, please
+http://localhost:8888/upload, and again, please
 do not yet hit enter.
 
 Now, do as follows: hit enter on the first window ("/start"), then
@@ -1300,7 +1299,7 @@ What the code does is straightforward: create a new variable *content*
 variable with the result, and return it.
 
 As always, we will start our application, and visit
-[http://localhost:8888/start][7]{: rel="nofollow"}.
+http://localhost:8888/start.
 
 Which loads a beautiful web page that displays the string "empty".
 What's going wrong here?
@@ -1494,9 +1493,9 @@ then modify your *requestHandlers.js* as follows:
     exports.start = start;
     exports.upload = upload;
 
-This will make HTTP requests to [http://localhost:8888/start][7]{:
-rel="nofollow"} take at least 10 seconds, but requests to
-[http://localhost:8888/upload][8]{: rel="nofollow"} will be answered
+This will make HTTP requests to http://localhost:8888/start
+take at least 10 seconds, but requests to
+http://localhost:8888/upload will be answered
 immediately, even if /start is still computing.
 
 ## Serving something useful
@@ -1572,7 +1571,7 @@ textarea.
 
 Now if this isn't going to win the Webby Awards, then I don't know
 what could. You should see this very simple form when requesting
-[http://localhost:8888/start][7]{: rel="nofollow"} in your browser. If
+http://localhost:8888/start in your browser. If
 not, you probably didn't restart the application.
 
 I hear you: having view content right in the request handler is ugly.
@@ -1961,8 +1960,8 @@ We also need to map this new request handler to the URL */show* in file
     
     server.start(router.route, handle);
 
-By restarting the server and opening [http://localhost:8888/show][11]{:
-rel="nofollow"} in the browser, the image file saved at */tmp/test.png*
+By restarting the server and opening http://localhost:8888/show
+in the browser, the image file saved at */tmp/test.png*
 should be displayed.
 
 Fine. All we need to do now is 
@@ -2211,21 +2210,6 @@ This way, you have the following advantages:
 
 If you would like to accept this offer, simply go to
 
-https://leanpub.com/nodecraftsman
+<https://leanpub.com/nodecraftsman>
 
 and use the coupon code *nodereader*.
-
-
-[1]: https://github.com/joyent/node/wiki/Installation "Building and Installing Node.js"
-[2]: http://localhost:8888/ 
-[3]: http://debuggable.com/posts/understanding-node-js:4bd98440-45e4-4a9a-8ef7-0f7ecbdd56cb 
-[4]: http://martinfowler.com/articles/injection.html 
-[5]: http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html 
-[6]: http://msdn.microsoft.com/en-us/magazine/cc163419.aspx 
-[7]: http://localhost:8888/start 
-[8]: http://localhost:8888/upload 
-[9]: http://localhost:8888/foo 
-[10]: http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/ 
-[11]: http://localhost:8888/show 
-[12]: https://github.com/joyent/node/wiki 
-[13]: http://www.nodecloud.org/ 
