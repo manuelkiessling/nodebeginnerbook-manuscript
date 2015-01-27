@@ -24,11 +24,12 @@ As of now, *The Node Craftsman Book* contains the following chapters:
 * Working with NPM and Packages
 * Object-Oriented JavaScript
 * Test-Driven Node.js Development
+* Synchronous and Asynchronous operations explained
 * Using and creating Event Emitters
 * Node.js and MySQL
 * Node.js and MongoDB
 
-It's already at 94 pages, and more chapters will follow soon.
+It's already at 107 pages, and more chapters will follow soon.
 
 The final price of the finished book will be $9.99, but as a reader and buyer of
 *The Node Beginner Book*, you have the opportunity to buy the new book while it
@@ -48,7 +49,8 @@ If you would like to accept this offer, simply go to
 
 and use the coupon code *nodereader*.
 
-
+(Of course, if you've just bought the Node.js bundle from Leanpub, you already own
+*The Node Craftsman Book*...)
 
 
 
@@ -68,10 +70,10 @@ applications for Node.js, teaching you everything you need to know about
 
 You are reading the final version of this book, i.e., updates are only
 done to correct errors or to reflect changes in new versions of Node.js.
-It was last updated on August 27, 2014.
+It was last updated on January 3, 2015.
 
 The code samples in this book are tested to work with Node.js version
-0.10.29.
+0.10.35.
 
 ## Intended audience
 
@@ -1595,7 +1597,7 @@ blocking operation.
 
 To make the whole process non-blocking, Node.js serves our code the POST
 data in small chunks, callbacks that are called upon certain events.
-These events are *data* (an new chunk of POST data arrives) and *end*
+These events are *data* (a new chunk of POST data arrives) and *end*
 (all chunks have been received).
 
 We need to tell Node.js which functions to call back to when these
