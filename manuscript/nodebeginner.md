@@ -1,63 +1,34 @@
 # Special notice
 
-Dear reader of *The Node Beginner Book*,
+Dear reader,
 
-This book is meant to get you started with developing applications using
-Node.js - nothing less, but also, nothing more.
+I have recently started working on my next book:
 
-A lot of readers have asked for a sequel, a book that starts off where
-*The Node Beginner Book* ends, allowing them to dive deeper into Node.js
-development, learning about database handling, frameworks, unit tests,
-and much more.
+![Beginning Mobile App Development with React Native](images/Beginning-Mobile-App-Development-with-React-Native-Rendered-Book-247x300.png)
 
-I have now started to work on such a book. It is called *The Node
-Craftsman Book*, and it is available through Leanpub, too.
+It is going to be a comprehensive tutorial-style eBook that gets you from
+zero to native iOS and Android app development with JavaScript, HTML and CSS
+in no time.
 
-This new book is currently work in progress, just like *The Node Beginner Book*
-was when it first came out.
+Aimed at beginners in the field of mobile app programming, the book requires
+no prior knowledge in developing apps for iOS or Android phones and tablets,
+and introduces everything that is needed to work with the React JavaScript
+framework in an easy-to-follow and comprehensive manner. 
+All that is required in order to dive into the book is a very basic understanding
+of how JavaScript code works. Everything else is introduced at just the right pace.
 
-My plan is to constantly expand *The Node Craftsman Book* while collecting and
-using feedback from the community.
+If you would like to stay up to date regarding the release of this book, then
+simply subscribe to the book launch newsletter using the form at
 
-As of now, *The Node Craftsman Book* contains the following chapters:
+http://beginning-react-native.com/#subscribe
 
-* Working with NPM and Packages
-* Object-Oriented JavaScript
-* Test-Driven Node.js Development
-* Synchronous and Asynchronous operations explained
-* Using and creating Event Emitters
-* Node.js and MySQL
-* Node.js and MongoDB
-
-It's already at 107 pages, and more chapters will follow soon.
-
-The final price of the finished book will be $9.99, but as a reader and buyer of
-*The Node Beginner Book*, you have the opportunity to buy the new book while it
-is made, at 50% off for only $4.99.
-
-This way, you have the following advantages:
-
-* Learn: Get your hands on new chapters covering advanced Node.js and JavaScript
-  topics as soon as they are finished
-* Suggest ideas: what would *you* like to see in the final book?
-* Save: You only pay $4.99 once, and you will receive all future updates *for
-  free*, including the final and complete version of the book
-
-If you would like to accept this offer, simply go to
-
-<https://leanpub.com/nodecraftsman>
-
-and use the coupon code *nodereader*.
-
-(Of course, if you've just bought the Node.js bundle from Leanpub, you already own
-*The Node Craftsman Book*...)
+You will receive an email as soon as the book is available, plus you will receive
+**a 50% off coupon code** on launch day which will allow you to buy the book for
+half the price!
 
 
+{page-break}
 
-
-
-
-.
 
 # About
 
@@ -70,10 +41,9 @@ applications for Node.js, teaching you everything you need to know about
 
 You are reading the final version of this book, i.e., updates are only
 done to correct errors or to reflect changes in new versions of Node.js.
-It was last updated on January 3, 2015.
+It was last updated on October 10, 2015.
 
-The code samples in this book are tested to work with Node.js version
-0.10.35.
+The code samples in this book are tested to work with Node.js v4.1.2.
 
 ## Intended audience
 
@@ -1812,7 +1782,7 @@ to issuing
 on our command line. If the following output ends with
 
 {:lang="text"}
-    npm info build Success: formidable@1.0.2
+    npm info build Success: formidable@1.0.17
     npm ok
 
 then we are good to go.
@@ -2173,45 +2143,32 @@ requests.
 But that's the fate of every book aimed at beginners - it can't talk
 about every single aspect in every single detail.
 
+I> You can ignore the following info if you already own *The Node Craftsman Book*.
+
 A lot of readers have asked for a sequel, a book that starts off where
 *The Node Beginner Book* ends, allowing them to dive deeper into Node.js
 development, learning about database handling, frameworks, unit tests,
 and much more.
 
-I have now started to work on such a book. It is called *The Node
-Craftsman Book*, and it is available through Leanpub, too.
+This sequel book is now available. It is called *The Node Craftsman Book*,
+and it is available through Leanpub, too.
 
-This new book is currently work in progress, just like *The Node Beginner Book*
-was when it first came out.
+![](images/The_Node_Craftsman_Book_Cover.png)
 
-My plan is to constantly expand *The Node Craftsman Book* while collecting and
-using feedback from the community.
-
-As of now, *The Node Craftsman Book* contains the following chapters:
+At 170 pages, it features the following chapters:
 
 * Working with NPM and Packages
-* Object-Oriented JavaScript
 * Test-Driven Node.js Development
+* Object-Oriented JavaScript
+* Synchronous and Asynchronous operations explained
 * Using and creating Event Emitters
+* Optimizing code performance and control flow management using the async library
 * Node.js and MySQL
 * Node.js and MongoDB
+* Building a complete web application with Node.js and AngularJS
 
-It's already at 94 pages, and more chapters will follow soon.
+The regular price of *The Node Craftsman Book* is $19.99, but as a reader and buyer of
+*The Node Beginner Book*, you have the opportunity to buy it for a discounted price of
+only **$9.99**.
 
-The final price of the finished book will be $9.99, but as a reader and buyer of
-*The Node Beginner Book*, you have the opportunity to buy the new book while it
-is made, at 50% off for only $4.99.
-
-This way, you have the following advantages:
-
-* Learn: Get your hands on new chapters covering advanced Node.js and JavaScript
-  topics as soon as they are finished
-* Suggest ideas: what would *you* like to see in the final book?
-* Save: You only pay $4.99 once, and you will receive all future updates *for
-  free*, including the final and complete version of the book
-
-If you would like to accept this offer, simply go to
-
-<https://leanpub.com/nodecraftsman>
-
-and use the coupon code *nodereader*.
+If you would like to accept this limited offer, simply go to <https://leanpub.com/nodecraftsman/c/nodereader>.
