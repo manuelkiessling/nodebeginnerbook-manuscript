@@ -41,9 +41,11 @@ applications for Node.js, teaching you everything you need to know about
 
 You are reading the final version of this book, i.e., updates are only
 done to correct errors or to reflect changes in new versions of Node.js.
-It was last updated on October 10, 2015.
+It was last updated on August 18, 2016.
 
-The code samples in this book are tested to work with Node.js v4.1.2.
+The code samples in this book are tested to work with both the
+Long Term Support version 4.5.0 as well as the most current 6.4.0 version
+of Node.js.
 
 ## Intended audience
 
@@ -184,7 +186,7 @@ Thus, Node.js is really two things: a runtime environment and a library.
 
 In order to make use of these, you need to install Node.js. Instead of
 repeating the process here, I kindly ask you to visit [the official
-installation instructions](https://github.com/joyent/node/wiki/Installation).
+installation page](https://nodejs.org/en/download/).
 Please come back once you are up and running.
 
 ## "Hello World"
@@ -369,7 +371,7 @@ You can, for example, do something like this:
     
     execute(say, "Hello");
 
-Read this carefully! What we are doing here is, we pass the function
+Read this carefully! We pass the function
 *say* as the first parameter to the *execute* function. Not the return
 value of *say*, but *say* itself!
 
@@ -526,10 +528,10 @@ requests per second, this wouldn't work at all.
 It's important to note that this asynchronous, single-threaded,
 event-driven execution model isn't an infinitely scalable
 performance unicorn with silver bullets attached. It is just one
-of several models, and it has its limitations, one being that as
-of now, Node.js is just one single process, and it can run on only
+of several models, and it has its limitations. One being that as
+of now, Node.js is just one single process and it can run on only
 one single CPU core. Personally, I find this model quite
-approachable, because it allows to write applications that have to
+approachable, because it allows you to write applications that have to
 deal with concurrency in an efficient and relatively
 straightforward manner.
 
@@ -796,7 +798,7 @@ Our HTTP server needs to know about and make use of our router. We could
 hard-wire this dependency into the server, but because we learned the
 hard way from our experience with other programming languages, we are
 going to loosely couple server and router by injecting this dependency
-(you may want to read [Martin Fowlers excellent post on Dependency
+(you may want to read [Martin Fowler's excellent post on Dependency
 Injection](http://martinfowler.com/articles/injection.html) for background information).
 
 Let's first extend our server's *start()* function in order to enable
