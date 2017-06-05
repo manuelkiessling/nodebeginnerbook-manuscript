@@ -2,29 +2,27 @@
 
 Dear reader,
 
-I have recently started working on my next book:
+I would like to inform you about another book of mine which helps you to do even more with your new learned JavaScript
+skills:
 
 ![Beginning Mobile App Development with React Native](images/Beginning-Mobile-App-Development-with-React-Native-Rendered-Book-247x300.png)
 
-It is going to be a comprehensive tutorial-style eBook that gets you from
-zero to native iOS and Android app development with JavaScript, HTML and CSS
-in no time.
+It a comprehensive tutorial-style eBook that gets you from zero to native iOS mobile app development with JavaScript,
+HTML and CSS in no time.
 
-Aimed at beginners in the field of mobile app programming, the book requires
-no prior knowledge in developing apps for iOS or Android phones and tablets,
-and introduces everything that is needed to work with the React JavaScript
-framework in an easy-to-follow and comprehensive manner. 
-All that is required in order to dive into the book is a very basic understanding
-of how JavaScript code works. Everything else is introduced at just the right pace.
+Aimed at beginners in the field of mobile app programming, the book requires no prior knowledge in developing apps for
+iOS, and introduces everything that is needed to work with the React JavaScript framework in an easy-to-follow and
+comprehensive manner. 
 
-If you would like to stay up to date regarding the release of this book, then
-simply subscribe to the book launch newsletter using the form at
+All that is required in order to dive into the book is a very basic understanding of how JavaScript code works.
+Everything else is introduced at just the right pace.
 
-http://beginning-react-native.com/#subscribe
+Now, the thing is that I have decided to make this a real steal: **It's only $2.99**. That's not a typo! Just go to
 
-You will receive an email as soon as the book is available, plus you will receive
-**a 50% off coupon code** on launch day which will allow you to buy the book for
-half the price!
+https://leanpub.com/beginning-mobile-app-development-with-react-native/
+
+and download your PDF, ePub or MOBI copy for less than three dollars and start building mobile apps with JavaScript
+today!
 
 
 {page-break}
@@ -41,7 +39,7 @@ applications for Node.js, teaching you everything you need to know about
 
 You are reading the final version of this book, i.e., updates are only
 done to correct errors or to reflect changes in new versions of Node.js.
-It was last updated on August 18, 2016.
+It was last updated on September 6, 2016.
 
 The code samples in this book are tested to work with both the
 Long Term Support version 4.5.0 as well as the most current 6.4.0 version
@@ -1781,11 +1779,10 @@ to issuing
 {:lang="text"}
     npm install formidable
 
-on our command line. If the following output ends with
+on our command line. If the following output ends similarly to this
 
 {:lang="text"}
-    npm info build Success: formidable@1.0.17
-    npm ok
+    added 1 package in 0.396s
 
 then we are good to go.
 
