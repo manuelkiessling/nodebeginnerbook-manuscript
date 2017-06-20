@@ -198,7 +198,7 @@ Open your favorite editor and create a file called *helloworld.js*. We
 want it to write "Hello World" to STDOUT, and here is the code needed
 to do that:
 
-{:lang="js" }
+<!-- language: lang-js -->
     console.log("Hello World");
 
 Save the file, and execute it through Node.js:
@@ -299,7 +299,7 @@ named *server.js*.
 Let's start with the server module. Create the file *server.js* in the
 root directory of your project, and fill it with the following code:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     
     http.createServer(function(request, response) {
@@ -338,7 +338,7 @@ opening bracket of *http.createServer*.
 We could have written the code that starts our server and makes it
 listen at port 8888 like this:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     
     var server = http.createServer();
@@ -360,7 +360,7 @@ functions can be passed around like any other value.
 
 You can, for example, do something like this:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function say(word) {
       console.log(word);
     }
@@ -387,7 +387,7 @@ function by its name. But we don't have to take this indirection of
 first defining, then passing it - we can define and pass a function as a
 parameter to another function in-place:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function execute(someFunction, value) {
       someFunction(value);
     }
@@ -410,7 +410,7 @@ we then pass, or by defining the function to pass in-place.
 
 With this knowledge, let's get back to our minimalistic HTTP server:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     
     http.createServer(function(request, response) {
@@ -424,7 +424,7 @@ By now it should be clear what we are actually doing here: we pass the
 
 We could achieve the same by refactoring our code to:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     
     function onRequest(request, response) {
@@ -446,7 +446,7 @@ different from runtime environments like Python, Ruby, PHP or Java.
 
 Let's take a very simple piece of code like this:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var result = database.query("SELECT * FROM hugetable");
     console.log("Hello World");
 
@@ -487,7 +487,7 @@ event loop.
 We can understand this concept by analyzing a rewritten version
 of our problematic code:
 
-{:lang="js" }
+<!-- language: lang-js -->
     database.query("SELECT * FROM hugetable", function(rows) {
         var result = rows;
     });
@@ -544,7 +544,7 @@ code continues after creating the server, even if no HTTP request
 happened and the callback function we passed isn't called? Let's try
 it:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     
     function onRequest(request, response) {
@@ -614,7 +614,7 @@ be used by our yet-to-be-written *index.js* main file.
 
 As you may have noticed, we already used modules in our code, like this:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     
     ...
@@ -631,7 +631,7 @@ methods the *http* module provides.
 It's common practice to choose the name of the module for the name of
 the local variable, but we are free to choose whatever we like:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var foo = require("http");
     
     ...
@@ -653,7 +653,7 @@ scripts requiring our server module simply need to start the server.
 To make this possible, we will put our server code into a function named
 *start*, and we will export this function:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     
     function start() {
@@ -676,7 +676,7 @@ file.
 
 Create a file *index.js* with the following content:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var server = require("./server");
     
     server.start();
@@ -782,7 +782,7 @@ soon.
 Ok, it's time to actually write our router. Create a new file called
 *router.js*, with the following content:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function route(pathname) {
       console.log("About to route a request for " + pathname);
     }
@@ -804,7 +804,7 @@ Injection](http://martinfowler.com/articles/injection.html) for background infor
 Let's first extend our server's *start()* function in order to enable
 us to pass the route function to be used by parameter:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     var url = require("url");
     
@@ -830,7 +830,7 @@ us to pass the route function to be used by parameter:
 And let's extend our *index.js* accordingly, that is, injecting the
 route function of our router into the server:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var server = require("./server");
     var router = require("./router");
     
@@ -899,7 +899,7 @@ New application part, new module - no surprise here. Let's create a
 module called requestHandlers, add a placeholder function for every
 request handler, and export these as methods of the module:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function start() {
       console.log("Request handler 'start' was called.");
     }
@@ -961,7 +961,7 @@ want to inject this object into the *route()*.
 Let's start with putting the object together in our main file
 *index.js*\:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var server = require("./server");
     var router = require("./router");
     var requestHandlers = require("./requestHandlers");
@@ -986,7 +986,7 @@ the *start* handler.
 After defining our object, we pass it into the server as an additional
 parameter. Let's change our *server.js* to make use of it:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     var url = require("url");
     
@@ -1014,7 +1014,7 @@ the handle object on to the *route()* callback, as its first parameter.
 Let's change the *route()* function accordingly, in our *router.js*
 file:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function route(handle, pathname) {
       console.log("About to route a request for " + pathname);
       if (typeof handle[pathname] === 'function') {
@@ -1083,7 +1083,7 @@ We start with the request handlers and make them return what we would
 like to display in the browser. We need to change *requestHandlers.js*
 to this:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function start() {
       console.log("Request handler 'start' was called.");
       return "Hello Start";
@@ -1101,7 +1101,7 @@ Good. Likewise, the router needs to return to the server what the
 request handlers return to him. We therefore need to edit *router.js*
 like this:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function route(handle, pathname) {
       console.log("About to route a request for " + pathname);
       if (typeof handle[pathname] === 'function') {
@@ -1121,7 +1121,7 @@ And last but not least, we need to refactor our server to make it
 respond to the browser with the content the request handlers returned
 via the router, transforming *server.js* into:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     var url = require("url");
     
@@ -1172,7 +1172,7 @@ that.
 
 Please modify *requestHandlers.js* as follows:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function start() {
       console.log("Request handler 'start' was called.");
     
@@ -1237,7 +1237,7 @@ our application.
 We are going to use our *start* request handler for this again. Please
 modify it to reflect the following (file *requestHandlers.js*):
 
-{:lang="js" }
+<!-- language: lang-js -->
     var exec = require("child_process").exec;
     
     function start() {
@@ -1299,7 +1299,7 @@ of a callback function.
 In our example, it's an anonymous function which is passed as the
 second parameter to the *exec()* function call:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function (error, stdout, stderr) {
       content = stdout;
     }
@@ -1356,7 +1356,7 @@ application.
 
 Let's start with our *server.js*\:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     var url = require("url");
     
@@ -1381,7 +1381,7 @@ expect *route* to take care of that.
 
 Next comes *router.js*\:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function route(handle, pathname, response) {
       console.log("About to route a request for " + pathname);
       if (typeof handle[pathname] === 'function') {
@@ -1404,7 +1404,7 @@ proper "404" header and body ourselves.
 
 And last but not least, we modify *requestHandlers.js*\:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var exec = require("child_process").exec;
     
     function start(response) {
@@ -1442,7 +1442,7 @@ If you would like to prove that an expensive operation behind */start*
 will no longer block requests for */upload* from answering immediately,
 then modify your *requestHandlers.js* as follows:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var exec = require("child_process").exec;
     
     function start(response) {
@@ -1510,7 +1510,7 @@ textarea.
 
  The HTML for this textarea form needs to be served by our */start* request handler, so let's add it right away, in file *requestHandlers.js*\:     
 
-{:lang="js" }
+<!-- language: lang-js -->
     function start(response) {
       console.log("Request handler 'start' was called.");
     
@@ -1579,7 +1579,7 @@ received.
 
 This basically looks like this:
 
-{:lang="js" }
+<!-- language: lang-js -->
     request.addListener("data", function(chunk) {
       // called when a new chunk of data was received
     });
@@ -1607,7 +1607,7 @@ the request handlers.
 
 Here we go, starting with *server.js*\:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     var url = require("url");
     
@@ -1657,7 +1657,7 @@ Let's add even more awesome to our app. On the /upload page, we will
 display the received content. To make this possible, we need to pass the
 *postData* on to the request handlers, in *router.js*\:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function route(handle, pathname, response, postData) {
       console.log("About to route a request for " + pathname);
       if (typeof handle[pathname] === 'function') {
@@ -1675,7 +1675,7 @@ display the received content. To make this possible, we need to pass the
 And in *requestHandlers.js*, we include the data in our response of the
 *upload* request handler:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function start(response, postData) {
       console.log("Request handler 'start' was called.");
     
@@ -1718,7 +1718,7 @@ data, in this case, the value of the *text* field.
 We already read about the *querystring* module, which assists us with
 this:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var querystring = require("querystring");
     
     function start(response, postData) {
@@ -1793,7 +1793,7 @@ The *formidable* module is now available to our own code - all we need
 to do is requiring it just like one of the built-in modules we used
 earlier:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var formidable = require("formidable");
 
 The metaphor formidable uses is that of a form being submitted via HTTP
@@ -1805,7 +1805,7 @@ for the fields and files that were submitted through this form.
 The example code from the node-formidable project page shows how the
 different parts play together:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var formidable = require('formidable'),
         http = require('http'),
         sys = require('sys');
@@ -1875,7 +1875,7 @@ location first.
 
 We are going to modify *requestHandlers.js* as follows:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var querystring = require("querystring"),
         fs = require("fs");
     
@@ -1921,7 +1921,7 @@ We are going to modify *requestHandlers.js* as follows:
 We also need to map this new request handler to the URL */show* in file
 *index.js*\:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var server = require("./server");
     var router = require("./router");
     var requestHandlers = require("./requestHandlers");
@@ -1950,7 +1950,7 @@ Step 1 is simple. We need to add an encoding type of
 upload input field, and change the submit button text to "Upload
 file". Let's do just that in file *requestHandlers.js*\:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var querystring = require("querystring"),
         fs = require("fs");
     
@@ -2016,7 +2016,7 @@ Let's start with *server.js* - we remove the postData handling and the
 *request.setEncoding* line (which is going to be handled by
 node-formidable itself), and we pass *request* to the router instead:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var http = require("http");
     var url = require("url");
     
@@ -2036,7 +2036,7 @@ node-formidable itself), and we pass *request* to the router instead:
 Next comes *router.js* - we don't need to pass *postData* on anymore,
 and instead pass *request*\:
 
-{:lang="js" }
+<!-- language: lang-js -->
     function route(handle, pathname, response, request) {
       console.log("About to route a request for " + pathname);
       if (typeof handle[pathname] === 'function') {
@@ -2065,7 +2065,7 @@ the file in case of an error.
 Let's put the pieces of managing the uploaded file and renaming it
 together now, in file *requestHandlers.js*\:
 
-{:lang="js" }
+<!-- language: lang-js -->
     var querystring = require("querystring"),
         fs = require("fs"),
         formidable = require("formidable");
