@@ -845,11 +845,11 @@ request an URL, you can now see from the application's output that our
 HTTP server makes use of our router and passes it the requested
 pathname:
 
-{:lang="text"}
+```
     bash$ node index.js
     Request for /foo received.
     About to route a request for /foo
-
+```
 (I omitted the rather annoying output for the /favicon.ico request).
 
 ## Execution in the kingdom of verbs
@@ -1039,21 +1039,21 @@ together! When starting our application and requesting
 http://localhost:8888/start in our browser, we
 can prove that the correct request handler was indeed called:
 
-{:lang="text"}
+```
     Server has started.
     Request for /start received.
     About to route a request for /start
     Request handler 'start' was called.
-
+```
 And opening http://localhost:8888/ in our browser
 proves that these requests, too, are indeed handled by the *start*
 request handler:
 
-{:lang="text"}
+```
     Request for / received.
     About to route a request for /
     Request handler 'start' was called.
-
+```
 ## Making the request handlers respond
 
 Beautiful. Now if only the request handlers could actually send
@@ -1779,15 +1779,15 @@ to be installed. Node.js ships with its own package manager, dubbed
 convenient fashion. Given a working Node.js installation, it boils down
 to issuing
 
-{:lang="text"}
+```
     npm install formidable
-
+```
 on our command line. If the following output ends with
 
-{:lang="text"}
+```
     npm info build Success: formidable@1.0.17
     npm ok
-
+```
 then we are good to go.
 
 The *formidable* module is now available to our own code - all we need
@@ -1840,7 +1840,7 @@ able to submit a simple form, including a file upload, and see how the
 *files* object, which is passed to the callback defined in the
 *form.parse* call, is structured:
 
-{:lang="text"}
+```
     received upload:
     
     { fields: { title: 'Hello World' },
@@ -1855,7 +1855,7 @@ able to submit a simple form, including a file upload, and see how the
             length: [Getter],
             filename: [Getter],
             mime: [Getter] } } }
-
+```
 
 In order to make our use case happen, what we need to do is to include
 the form-parsing logic of formidable into our code structure, plus we
