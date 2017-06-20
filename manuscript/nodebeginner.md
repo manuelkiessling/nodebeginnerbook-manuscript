@@ -730,7 +730,7 @@ different parts of a URL (like e.g. the requested path and query
 string), and *querystring* can in turn be used to parse the query string
 for request parameters:
 
-{:lang="text"}
+```
                                    url.parse(string).query
                                                |
                url.parse(string).pathname      |
@@ -744,6 +744,7 @@ for request parameters:
             querystring.parse(string)["foo"]    |
                                                 |
                        querystring.parse(string)["hello"]
+```                       
 
 We can, of course, also use *querystring* to parse the body of a POST
 request for parameters, as we will see later.
@@ -751,7 +752,7 @@ request for parameters, as we will see later.
 Let's now add to our *onRequest()* function the logic needed to find
 out which URL path the browser requested:
 
-{:lang="js"}
+<!-- language: lang-js -->
     var http = require("http");
     var url = require("url");
     
