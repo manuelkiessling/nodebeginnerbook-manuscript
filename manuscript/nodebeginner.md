@@ -2,12 +2,12 @@
 
 Dear reader,
 
-I would like to inform you about another book of mine which helps you to do even more with your new learned JavaScript
+I would like to inform you about another book of mine which helps you to do even more with your newly learned JavaScript
 skills:
 
 ![Beginning Mobile App Development with React Native](images/Beginning-Mobile-App-Development-with-React-Native-Rendered-Book-247x300.png)
 
-It a comprehensive tutorial-style eBook that gets you from zero to native iOS mobile app development with JavaScript,
+It is a comprehensive tutorial-style eBook that gets you from zero to native iOS mobile app development with JavaScript,
 HTML and CSS in no time.
 
 Aimed at beginners in the field of mobile app programming, the book requires no prior knowledge in developing apps for
@@ -17,11 +17,11 @@ comprehensive manner.
 All that is required in order to dive into the book is a very basic understanding of how JavaScript code works.
 Everything else is introduced at just the right pace.
 
-Now, the thing is that I have decided to make this a real steal: **It's only $2.99**. That's not a typo! Just go to
+Now, the thing is that I have decided to make this a real steal: **It's only $5.99**. That's not a typo! Just go to
 
-https://leanpub.com/beginning-mobile-app-development-with-react-native/
+**https://leanpub.com/beginning-mobile-app-development-with-react-native/**
 
-and download your PDF, ePub or MOBI copy for less than three dollars and start building mobile apps with JavaScript
+and download your PDF, ePub or MOBI copy for less than six dollars and start building mobile apps with JavaScript
 today!
 
 
@@ -39,10 +39,10 @@ applications for Node.js, teaching you everything you need to know about
 
 You are reading the final version of this book, i.e., updates are only
 done to correct errors or to reflect changes in new versions of Node.js.
-It was last updated on September 6, 2016.
+It was last updated on June 5, 2017.
 
 The code samples in this book are tested to work with both the
-Long Term Support version 4.5.0 as well as the most current 6.4.0 version
+Long Term Support version 6.10.3 as well as the most current 8.0.0 version
 of Node.js.
 
 ## Intended audience
